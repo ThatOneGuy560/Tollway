@@ -7,8 +7,7 @@ public class TollwayCustomerDataBaseState
    {
     
    public static void main (String args []){
-    Name nice = new Name("Chris", "Ho");
-    System.out.println(nice);
+    
    }
     
   
@@ -35,7 +34,7 @@ public class TollwayCustomerDataBaseState
         BufferedReader reader = null;
 
         try{
-            reader = new BufferedReader(new FileReader(name))
+            reader = new BufferedReader(new FileReader(name));
         } catch (IOException e){
             System.out.println("Error opening file: " + name);
             e.printStackTrace();
@@ -109,7 +108,7 @@ class Payment
         this.credit_card = credit_card;
       }
   public String getInfo(){
-    
+    return String.format("$%.2f %s", deposit, credit_card);
   }
   
    }
