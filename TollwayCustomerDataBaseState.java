@@ -13,10 +13,36 @@ public class TollwayCustomerDataBaseState
    }
     
   
-//   private static Customer readCustomer(BufferedReader in)	
+     private static Customer readCustomer(BufferedReader in){
+        Customer customer = null;
+        try {
+            // Read and parse the data from the file to create the customer object
+            String line = in.readLine();
+            String[] data = line.split(",");
+            String name = data[0];
+            int id = Integer.parseInt(data[1]);
+            double balance = Double.parseDouble(data[2]);
+            customer = new Customer(name, id, balance);
+        } catch (IOException e) {
+            System.out.println("Error reading from file");
+            e.printStackTrace();
+        }
+        return customer;
+
+     }
      
   
-//   private static BufferedReader getReader(String name)	
+     private static BufferedReader getReader(String name){
+        BufferedReader reader = null;
+
+        try{
+            reader = new BufferedReader(new FileReader(name))
+        } catch (IOException e){
+            System.out.println("Error opening file: " + name);
+            e.printStackTrace();
+        }
+        return reader;
+     }
   
   }
    
@@ -24,6 +50,7 @@ public class TollwayCustomerDataBaseState
 ////// Customer Attributes: Name, CarInfo, Payment
 class Customer  
    {
+    
       
 //   public String getInfo()
    
