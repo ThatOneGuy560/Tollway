@@ -5,10 +5,13 @@ import java.io.*;
 
 public class TollwayCustomerDataBaseState
    {
-
- 
-//   public static void main (String args [])
-            
+    private Name name;
+    private CarInfo carInfo;
+    private Payment payment;
+   public static void main (String args []){
+    
+   }
+    
   
 //   private static Customer readCustomer(BufferedReader in)	
      
