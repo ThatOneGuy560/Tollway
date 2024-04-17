@@ -123,7 +123,7 @@ class Payment
         this.credit_card = credit_card;
       }
   public String getInfo(){
-    
+    return String.format("$%.2f %s", deposit, credit_card);
   }
   
    }
