@@ -67,15 +67,24 @@ class CarInfo
         this.model = model;
         this.license_plates = license_plates;
      }
-//   public String getInfo()
-  
+   public String getInfo(){
+        return make + " " + model + " " + license_plates; 
+   }
    }
 
 ////// Payment Attributes: deposit, credit_card 
 class Payment
    {
-      
-//   public String getInfo()
+      private double deposit;
+      private String credit_card;
+
+      public Payment(Double deposit, String credit_card){
+        this.deposit = deposit;
+        this.credit_card = credit_card;
+      }
+  public String getInfo(){
+    
+  }
   
    }
 
