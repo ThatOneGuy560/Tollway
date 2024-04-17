@@ -32,9 +32,9 @@ public class TollwayCustomerDataBaseState
         CarInfo carInfo = new CarInfo(make, model, license_plates);
         
         String[] paymentData = data[2].split(",");
-        String paymentType = paymentData[0];
-        double amount = Double.parseDouble(paymentData[1]);
-        Payment payment = new Payment(paymentType, amount);
+        String paymentType = paymentData[1];
+        double amount = Double.parseDouble(paymentData[0]);
+        Payment payment = new Payment(amount, paymentType);
             customer = new Customer(name, carInfo, payment);    
         } catch (IOException e) {
             System.out.println("Error reading from file");
