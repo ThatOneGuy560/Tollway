@@ -7,7 +7,8 @@ public class TollwayCustomerDataBaseState
    {
     
    public static void main (String args []){
-    
+    Name nice = new Name("Chris", "Ho");
+    System.out.println(nice);
    }
     
   
@@ -16,11 +17,25 @@ public class TollwayCustomerDataBaseState
         try {
             // Read and parse the data from the file to create the customer object
             String line = in.readLine();
-            String[] data = line.split(",");
-            String name = data[0];
-            int id = Integer.parseInt(data[1]);
-            double balance = Double.parseDouble(data[2]);
-            customer = new Customer(name, id, balance);
+
+            String[] data = line.split(System.lineSeparator());
+
+        String[] nameData = data[0].split(",");
+        String firstName = nameData[0];
+        String lastName = nameData[1];
+        Name name = new Name(firstName, lastName);
+        
+        String[] carData = data[1].split(",");
+        String make = carData[0];
+        String model = carData[1];
+        String license_plates = carData[2];
+        CarInfo carInfo = new CarInfo(make, model, license_plates);
+        
+        String[] paymentData = data[2].split(",");
+        String paymentType = paymentData[0];
+        double amount = Double.parseDouble(paymentData[1]);
+        Payment payment = new Payment(paymentType, amount);
+            customer = new Customer(name, carInfo, payment);    
         } catch (IOException e) {
             System.out.println("Error reading from file");
             e.printStackTrace();
@@ -34,7 +49,7 @@ public class TollwayCustomerDataBaseState
         BufferedReader reader = null;
 
         try{
-            reader = new BufferedReader(new FileReader(name));
+            reader = new BufferedReader(new FileReader(name))
         } catch (IOException e){
             System.out.println("Error opening file: " + name);
             e.printStackTrace();
@@ -108,7 +123,7 @@ class Payment
         this.credit_card = credit_card;
       }
   public String getInfo(){
-    return String.format("$%.2f %s", deposit, credit_card);
+    
   }
   
    }
