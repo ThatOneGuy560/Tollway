@@ -7,7 +7,6 @@ public class TollwayCustomerDataBaseState
    {
     
    public static void main (String args []){
-      TollwayCustomerDataBaseState program = new TollwayCustomerDataBaseState();
       BufferedReader reader = getReader("Names.txt");
       List<Customer> customers = new ArrayList<>();
   
